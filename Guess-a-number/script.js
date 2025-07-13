@@ -136,9 +136,11 @@ function validateGuess(guess) {
   } else {
     prevGuess.push(guess);
     displayGuess(guess);
-    if (guess === randomNumber) {
-      displayMessage('You won!');
-      endGame();
+    if (message === 'You won!') {
+    lowOrHi.innerHTML = `<h2 style="color: red; font-weight: bold;">${message}</h2>`;
+  } else {
+    lowOrHi.innerHTML = `<h2>${message}</h2>`;
+  }
     } else if (prevGuess.length === 3) {
       displayMessage(`Game Over. Random number was ${randomNumber}`);
       endGame();
@@ -177,6 +179,7 @@ function endGame() {
   playGame = false;
   newGame();
 }
+
 
 function newGame() {
   const newGameButton = document.querySelector('#newGame');
